@@ -1,51 +1,72 @@
-.nav {
+.navbar {
   display: flex;
-  padding: 15px 30px;
-  background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  width: 100%;
-}
-.expand_btn {
-  display: flex;
-  padding: 2px 4px;
-  width: 110px;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  justify-content: space-between;
-  border: 1px solid #dfe1e4;
-  border-radius: 5px;
-  font-weight: 500;
-  font-family: sans-serif;
-  cursor: pointer;
+  background-color: #ffffff;
+  border-bottom: 2px solid #e5e5e5;
 }
 
-.expand_btn svg {
-  height: 20px;
-  width: 20px;
+.display-container {
+  position: relative;
 }
-.dropdown {
-  position: absolute;
-  z-index: 2;
-  top: 50px;
-  left: 25px;
-  background-color: #f8f8fa;
-  border: 0.5px solid #dfe1e4;
-  border-radius: 10px;
-  width: 250px;
-}
+
 .display {
   display: flex;
-  justify-content: space-evenly;
-  height: 50px;
+  flex-direction: row;
   align-items: center;
-}
-.display p {
-  font-weight: 500;
-  color: gray;
-}
-select {
-  width: 50%;
-  height: 50%;
-  border: 1px solid #dfe1e4;
+  border: 2px solid #e5e5e5;
   border-radius: 5px;
+  padding: 2px 5px 2px 5px;
+  cursor: pointer;
+  margin: 20px 0px 20px 20px;
+}
+
+.display img {
+  height: 13px;
+}
+
+.display span {
+  margin-left: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.display-settings {
+  box-shadow: 0 0 0.25rem #12121242;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fbf9f9;
+  border-radius: 10px;
+  border: 2px solid #e5e5e5;
+  top: 55px;
+  left: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 5px 10px;
+  z-index: 100;
+  width: 270px;
+}
+
+.display-setting {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+}
+
+.display-setting div {
+  font-size: 13px;
+  font-weight: 500;
+  color: #707070;
+}
+
+.display-setting select {
+  font-size: 13px;
+  font-weight: 500;
+  color: #000000;
+  padding: 1px 5px 1px 5px;
+  border-radius: 5px;
+  border: 2px solid #e5e5e5;
+  background-color: #ffffff;
+  width: 90px;
 }

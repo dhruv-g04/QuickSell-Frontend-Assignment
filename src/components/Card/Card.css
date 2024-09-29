@@ -6,8 +6,9 @@
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  padding: 20px;
-  margin-top: 20px;
+  padding: 10px;
+  margin-top: 15px;
+  width: 300px;
 }
 
 .card-header {
@@ -20,7 +21,7 @@
 
 .card-id {
   color: #707070;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .card-user {
@@ -32,9 +33,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 13px;
-  width: 13px;
-  background-color: #c16d24;
+  height: 10px;
+  width: 10px;
+  /* background-color: #c16d24; */
   color: #ffffff;
   font-size: 10px;
   font-weight: 500;
@@ -66,12 +67,12 @@
 
 .card-body {
   display: flex;
-  /* grid-template-columns: 10% 90%; */
   justify-content: left;
   align-items: flex-start;
   width: 100%;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-left: -12px;
+  margin-bottom: 10px;
 }
 
 .card-body img {
@@ -83,9 +84,10 @@
 
 .card-body span {
   width: 90%;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 550;
   text-align: left;
+  margin: 0;
 }
 
 .card-footer {
@@ -101,7 +103,7 @@
   align-items: center;
   height: 25px;
   width: 25px;
-  border: 1px solid #e5e5e5;
+  border: 0.5px solid #e5e5e5;
   border-radius: 4px;
   margin-bottom: 5px;
   margin-right: 10px;

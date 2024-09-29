@@ -1,88 +1,49 @@
+import React, { useState, useEffect, useRef } from 'react'
 import './Navbar.css'
-import { MdOutlineTune } from "react-icons/md";
-import { FaAngleDown } from "react-icons/fa6";
-import { useState } from 'react';
-const groupOptions = [
-    {
-        label: "Status",
-        value: "status",
-    },
-    {
-        label: "User",
-        value: "user",
-    },
-    {
-        label: "Priority",
-        value: "priority",
-    }];
-const orderOptions = [
-    {
-        label: "Priority",
-        value: "priority",
-    },
 
-    {
-        label: "Title",
-        value: "title",
-    }];
+const settingsIcon = '/icons/settings.svg'
+const chevronIcon = '/icons/chevron-down.svg'
 
+function Navbar({ grouping, ordering, setGrouping, setOrdering }) {
+    const [isOpen, setIsOpen] = useState(false);
+    const button = useRef(null);
+    const drop = useRef(null);
+    useEffect(() => window.addEventListener('click', ev => {
+        if (drop.current && drop.current.contains(ev.target)) { setIsOpen(true) }
+        else if (button.current && button.current.contains(ev.target)) { setIsOpen(!isOpen) }
+        else { setIsOpen(false) }
+    }));
 
-const Navbar = ({ group, order, onGroupchange, onOrderChange }) => {
-    const [expandMore, setExpandMore] = useState(false);
-    const [groupedBy, setGroupedBy] = useState(group);
-    const [orderedBy, setOrderedBy] = useState(order);
-
-
-    const handleGroupChange = (e) => {
-        setGroupedBy(e.target.value);
-        onGroupchange(e.target.value);
+    function capitalize(word) {
+        return word[0].toUpperCase() + word.slice(1);
     }
-
-    const handleOrderChange = (e) => {
-        setOrderedBy(e.target.value);
-        onOrderChange(e.target.value);
-    }
-
-
 
     return (
-        <div className='nav'>
-            <div
-                className='expand_btn'
-                onClick={() => { setExpandMore(prev => !prev) }}
-            >
-                <MdOutlineTune />
-                <span>Display</span>
-                <FaAngleDown />
+        <div className='navbar'>
+            <div className='display-container' ref={button}>
+                <div className='display'>
+                    <img src={settingsIcon} />
+                    <span>Display</span>
+                    <img src={chevronIcon} />
+                </div>
+                {isOpen ? <div className='display-settings' ref={drop}>
+                    <div className='display-setting'>
+                        <div>Grouping</div>
+                        <div>Sorting</div>
+                    </div>
+                    <div className='display-setting'>
+                        <select value={capitalize(grouping)} onChange={e => { setGrouping(e.target.children[e.target.selectedIndex].getAttribute('data-id')) }}>
+                            <option key='status' data-id='status'>Status</option>
+                            <option key='user' data-id='user'>User</option>
+                            <option key='priority' data-id='priority'>Priority</option>
+                        </select>
+                        <select value={capitalize(ordering)} onChange={e => { console.log(e); setOrdering(e.target.children[e.target.selectedIndex].getAttribute('data-id')) }}>
+                            <option key='title' data-id='title'>Title</option>
+                            {grouping !== 'priority' ? <option key='priority' data-id='priority'>Priority</option> : null}
+                        </select>
+                    </div>
+                </div> : null}
             </div>
-            {expandMore && <div className="dropdown" >
-                <div className='display'>
-                    <p>Grouping</p>
-                    <select
-                        name="group"
-                        id="groupBy"
-                        defaultValue={group}
-                        onChange={handleGroupChange}>
-                        {groupOptions.map((opt, i) => (
-                            <option key={i} value={opt.value}>{opt.label}</option>
-                        ))}
-
-                    </select>
-                </div>
-                <div className='display'>
-                    <p>Ordering</p>
-                    <select
-                        name="order"
-                        id="orderBy"
-                        defaultValue={order}
-                        onChange={handleOrderChange}
-                    >
-                        {orderOptions.map((opt, i) => (
-                            <option key={i} value={opt.value}>{opt.label}</option>
-                        ))}
-                    </select>
-                </div>
-            </div>}
         </div>
     )
 }

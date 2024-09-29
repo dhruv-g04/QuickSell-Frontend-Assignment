@@ -1,34 +1,61 @@
-import React from 'react'
-// import Tag from './Tag'
-import './Card.css'
+import React from 'react';
+import Tag from '../Tag/Tag';
+import './Card.css';
 
-const doneIcon = '/icons/status/Todo.svg'
-const ellipsisIcon = '/icons/ellipsis.svg'
+const doneIcon = '/icons/status/Todo.svg';
+const ellipsisIcon = '/icons/ellipsis.svg';
 
 function Card({ ticket, grouping, user }) {
+    const colorArray = [
+        '#2ecc71', // Green
+        '#f1c40f', // Yellow
+        '#d35400', // Pumpkin
+        '#8e44ad', // Amethyst
+        '#16a085', // Dark Teal
+        '#27ae60', // Emerald Green
+        '#f39c12', // Bright Orange
+    ];
+    const backgColor = colorArray[Math.floor(Math.random() * colorArray.length)];
+    console.log('Dynamic Color:', colorArray);
+    console.log('Background Color:', backgColor);
+
+    const style = {
+        backgroundColor: backgColor,
+    };
+
     return (
         <div className='card'>
             <div className='card-header'>
                 <div className='card-id'>{ticket.id}</div>
-                {grouping === 'user' ? null : <div className='card-user'>
-                    <div className='card-user-icon'>{user.name.split(" ").map((n) => n[0].toUpperCase()).join("")}</div>
-                    <div className={user.available ? 'active-user' : 'inactive-user'}></div>
-                </div>}
+                {grouping !== 'user' && (
+                    <div className='card-user'>
+                        <div className='card-user-icon' style={style}>
+                            {user.name.split(" ").map((n) => n[0].toUpperCase()).join("")}
+                        </div>
+                        <div className={user.available ? 'active-user' : 'inactive-user'}></div>
+                    </div>
+                )}
             </div>
             <div className='card-body'>
-                {grouping === 'status' ? null : <img src={'/icons/status/' + ticket.status + '.svg'} />}
+                {grouping !== 'status' && (
+                    <img src={`/icons/status/${ticket.status}.svg`} alt={`${ticket.status} icon`} />
+                )}
                 <span>{ticket.title}</span>
             </div>
             <div className='card-footer'>
-                {grouping === 'priority' ? null : <div className='card-footer-priority'><img src={'/icons/priority/' + ticket.priority + '.svg'} /></div>}
+                {grouping !== 'priority' && (
+                    <div className='card-footer-priority'>
+                        <img src={`/icons/priority/${ticket.priority}.svg`} alt={`${ticket.priority} priority icon`} />
+                    </div>
+                )}
                 <div className='card-footer-tags'>
-                    {ticket.tag.map(tag => {
-                        return (<Tag tag={tag} />)
-                    })}
+                    {ticket.tag.map((tag, index) => (
+                        <Tag key={index} tag={tag} />
+                    ))}
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default Card
+export default Card;
