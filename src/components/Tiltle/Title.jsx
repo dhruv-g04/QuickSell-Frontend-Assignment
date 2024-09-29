@@ -2,7 +2,7 @@ import React from 'react'
 import './Title.css'
 
 const plusIcon = '/icons/plus.svg'
-const ellipsisIcon = '/icons/ellipsis.svg'
+const ellipsisIcon = '/icons/3 dot.svg'
 
 const priorityCode = {
     'No priority': 0,
@@ -37,14 +37,17 @@ function Title({ title, grouping, count, available = true }) {
                         <div className={available ? 'active-user' : 'inactive-user'}></div>
                     </div>
                     : grouping === 'status' ? <img src={'/icons/status/' + title + '.svg'} />
-                        : grouping === 'priority' ? <img src={'/icons/priority/' + priorityCode[title] + '.svg'} /> : null}
+                        : grouping === 'priority' ? <img
+                            src={`/icons/priority/${priorityCode[title] === 4 ? "4-color" : priorityCode[title]}.svg`}
+                            alt={`Priority ${priorityCode[title]} icon`}
+                        /> : null}
                 <span className='group-title'>{title}</span>
                 <span className='group-count'>{count}</span>
             </div>
-            {count > 0 ? <div className='card-title-right'>
+            <div className='card-title-right'>
                 <button className='card-title-right-btn'><img src={plusIcon} /></button>
                 <button className='card-title-right-btn'><img src={ellipsisIcon} /></button>
-            </div> : null}
+            </div>
         </div>
     )
 }

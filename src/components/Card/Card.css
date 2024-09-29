@@ -71,11 +71,11 @@
   align-items: flex-start;
   width: 100%;
   margin-top: 5px;
-  margin-left: -12px;
   margin-bottom: 10px;
 }
 
 .card-body img {
+  margin-left: -6px;
   height: 15px;
   width: 10%;
   margin-right: 5px;
@@ -101,12 +101,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 25px;
-  width: 25px;
+  height: 14.5px;
+  width: 14.5px;
   border: 0.5px solid #e5e5e5;
   border-radius: 4px;
   margin-bottom: 5px;
   margin-right: 10px;
+  padding: 3px;
 }
 
 .card-footer-priority img {

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import './Navbar.css'
 
 const settingsIcon = '/icons/settings.svg'
-const chevronIcon = '/icons/chevron-down.svg'
+const chevronIcon = '/icons/down.svg'
 
 function Navbar({ grouping, ordering, setGrouping, setOrdering }) {
     const [isOpen, setIsOpen] = useState(false);

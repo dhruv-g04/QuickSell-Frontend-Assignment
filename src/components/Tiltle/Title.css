@@ -1,6 +1,6 @@
 .card-title {
   display: flex;
-  width: 100%;
+  width: 320px;
   height: fit-content;
   justify-content: space-between;
 }

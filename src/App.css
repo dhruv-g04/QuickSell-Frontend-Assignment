@@ -11,5 +11,14 @@
 }
 
 .group-column {
+  min-width: 320px;
   margin: 0px 20px 40px 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 360px) {
+  .board {
+    display: flex;
+    flex-direction: column;
+  }
 }

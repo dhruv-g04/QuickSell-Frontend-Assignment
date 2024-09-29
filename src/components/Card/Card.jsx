@@ -2,8 +2,6 @@ import React from 'react';
 import Tag from '../Tag/Tag';
 import './Card.css';
 
-const doneIcon = '/icons/status/Todo.svg';
-const ellipsisIcon = '/icons/ellipsis.svg';
 
 function Card({ ticket, grouping, user }) {
     const colorArray = [
@@ -16,8 +14,6 @@ function Card({ ticket, grouping, user }) {
         '#f39c12', // Bright Orange
     ];
     const backgColor = colorArray[Math.floor(Math.random() * colorArray.length)];
-    console.log('Dynamic Color:', colorArray);
-    console.log('Background Color:', backgColor);
 
     const style = {
         backgroundColor: backgColor,
