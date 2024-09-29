@@ -4,13 +4,6 @@ This is the frontend for the QuickSell assignment, built with React.`axios` for 
 
 ## Getting Started
 
-### Prerequisites
-
-Make sure you have the following installed on your system:
-
-- Node.js
-- npm
-
 ### Installation
 
 1. Clone the repository:
